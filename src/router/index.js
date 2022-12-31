@@ -1,22 +1,50 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-
 Vue.use(VueRouter)
 
 const routes = [
+  // 首页
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: () => import('@/views/Home/Home')
   },
+
+  //  预警上报
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/reporting',
+    name: 'Reporting',
+    component: () => import('@/views/Reporting/Reporting')
+  },
+  // 场所地图 Venue
+  {
+    path: '/themap',
+    name: 'Themap',
+    component: () => import('@/views/Themap/Themap.vue')
+  },
+  // 监控预警
+  {
+    path: "/alerts",
+    name: 'Alerts',
+    component: () => import('@/views/Alerts/Alerts')
+  },
+  //  我的 
+  {
+    path: "/ltsmine",
+    name: "ItsMine",
+    component: () => import('@/views/ItsMine/ItsMine')
+  },
+  // 火灾预警页面
+  {
+    path: "/fire",
+    name: "Fire",
+    component: () => import('@/views/Fire/Fire')
+  },
+  //巡查上报
+  {
+    path: '/patrol',
+    name: 'Patrol',
+    component: () => import('@/views/Patrol/Patrol')
   }
 ]
 
