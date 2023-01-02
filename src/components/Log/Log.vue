@@ -1,67 +1,95 @@
 <template>
-  <div class="container">
-    <div class="log_container">
-      <div class="log_f">
-        <img src="@/assets/userimage/jinglt.png" alt="" />
-      </div>
-      <div class="log_d">
-        <img src="@/assets/userimage/jinglt2.png" alt="" />
-      </div>
-      <div class="log_j">
-        <img src="@/assets/userimage/jinglt3.png" alt="" />
-      </div>
-      <div class="log_t">
-        <img src="@/assets/userimage/jinglt1.png" alt="" />
-      </div>
-      <div class="log_y">
-        <img src="@/assets/userimage/jinglt4.png" alt="" />
-      </div>
-    </div>
-  </div>
+	<div class="container">
+		<div class="log_container">
+			<div class="church" :class="[index == listIndex ? 'check' : '']" @click="qiehuan(index)" v-for="(item , index) in list" :key="index">
+				<img class="church-icon" :src="item.icon" alt="" />
+				<div class="name blackColor">
+					{{ item.name }}
+				</div>
+			</div>
+		</div>
+	</div>
 </template>
+
 <script>
-import bus from "@/bus/bus";
-export default {
-  name: "Log",
-
-  created() {
-    bus.$on("usermap", (value) => {
-      console.log(value);
-    });
-  },
-};
+	import bus from "@/bus/bus";
+	export default {
+		name: "Log",
+		
+		data() {
+			return {
+				listIndex: 0,
+				list: [
+					{type: 1, icon: '/userimage/F.png', name: '佛教'},
+					{type: 2, icon: '/userimage/D.png', name: '道教'},
+					{type: 3, icon: '/userimage/J.png', name: '基督教'},
+					{type: 4, icon: '/userimage/T.png', name: '天主教'},
+					{type: 5, icon: '/userimage/Y.png', name: '伊斯兰教'},
+				],
+			}
+		},
+		created() {
+			bus.$on("usermap", (value) => {
+				console.log(value);
+			});
+			
+			this.selectChurch();
+		},
+		methods: {
+			/**
+			 * 切换宗教
+			 * @param {Object} index
+			 */
+			qiehuan(index) {
+				if(this.listIndex != index){
+					this.listIndex = index;
+					this.selectChurch();
+				}
+			},
+			/**
+			 * 通知
+			 */
+			selectChurch(){
+				bus.$emit("selectChurch", this.list[this.listIndex]);
+			}
+			
+		},
+	};
 </script>
-<style scoped lang="less">
-.log_container {
-  width: 70px;
-  height: 168px;
-  position: absolute;
-  right: 0;
-  top: 25%;
-}
 
-.log_f img {
-  width: 100%;
-  height: 37px;
-}
-.log_d img {
-  width: 100%;
-  height: 37px;
-  margin-top: 5px;
-}
-.log_j img {
-  width: 100%;
-  height: 37px;
-  margin-top: 5px;
-}
-.log_t img {
-  width: 100%;
-  height: 37px;
-  margin-top: 5px;
-}
-.log_y img {
-  width: 100%;
-  height: 37px;
-  margin-top: 5px;
-}
+<style scoped lang="less">
+	.log_container {
+		position: absolute;
+		right: 0;
+		top: 25vh;
+		display: flex;
+		flex-direction:column;
+		justify-content : flex-start;
+		align-items: flex-end;
+	}
+
+	.church{
+		width: 90px;
+		display: flex;
+		background-color: #FFFFFF;
+		padding: 7px 10px;
+		margin-bottom: 10px;
+		border-radius: 60px 0px 0px 60px;
+		
+		.church-icon{
+			width: 20px;
+			height: 20px;
+			margin-right: 10px;
+		}
+	}
+	
+	.check{
+		width: 100px;
+		border-width: 1px;
+		border-style: solid;
+		border-color: #000;
+		border-right: 0px;
+		font-weight: 700;
+		font-size: 14px;
+	}
 </style>

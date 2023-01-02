@@ -9,6 +9,13 @@ const routes = [
     name: 'home',
     component: () => import('@/views/Home/Home')
   },
+  
+  //  政策宣传详情
+  {
+    path: '/Article/Info',
+    name: 'ArticleInfo',
+    component: () => import('@/views/Article/Info')
+  },
 
   //  预警上报
   {
@@ -34,7 +41,20 @@ const routes = [
     name: "ItsMine",
     component: () => import('@/views/ItsMine/ItsMine')
   },
-  // 火灾预警页面
+  //  任务-处理 
+  {
+    path: "/ltsmine/handle",
+    name: "handle",
+    component: () => import('@/views/ItsMine/handle')
+  }, 
+   
+   //  任务-发起
+   {
+     path: "/ltsmine/launch",
+     name: "launch",
+     component: () => import('@/views/ItsMine/launch')
+   }, 
+
   {
     path: "/fire",
     name: "Fire",
