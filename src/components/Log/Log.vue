@@ -20,11 +20,11 @@
 			return {
 				listIndex: 0,
 				list: [
-					{type: 1, icon: '/userimage/F.png', name: '佛教'},
-					{type: 2, icon: '/userimage/D.png', name: '道教'},
-					{type: 3, icon: '/userimage/J.png', name: '基督教'},
-					{type: 4, icon: '/userimage/T.png', name: '天主教'},
-					{type: 5, icon: '/userimage/Y.png', name: '伊斯兰教'},
+					{type: 1, icon: '/userimage/F.png',sign: '/userimage/F_sign.png', name: '佛教'},
+					{type: 2, icon: '/userimage/D.png',sign: '/userimage/D_sign.png', name: '道教'},
+					{type: 3, icon: '/userimage/J.png',sign: '/userimage/J_sign.png', name: '基督教'},
+					{type: 4, icon: '/userimage/T.png',sign: '/userimage/T_sign.png', name: '天主教'},
+					{type: 5, icon: '/userimage/Y.png',sign: '/userimage/Y_sign.png', name: '伊斯兰教'},
 				],
 			}
 		},
