@@ -9,12 +9,7 @@ const routes = [
     name: 'home',
     component: () => import('@/views/Home/Home')
   },
-  //文章详情 HomeWiting
-  {
-    path: '/homewiting',
-    name: 'HomeWiting',
-    component: () => import('@/views/Home/HomeWiting')
-  },
+
   //  政策宣传详情
   {
     path: '/Article/Info',
@@ -65,7 +60,7 @@ const routes = [
     name: "launch",
     component: () => import('@/views/ItsMine/launch')
   },
-
+  // 预警处理
   {
     path: "/fire",
     name: "Fire",

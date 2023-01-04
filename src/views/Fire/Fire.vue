@@ -1,266 +1,198 @@
 <template>
-	<div class="container">
-		<!-- 头部 -->
-		<div class="fire_hear">
-			<div class="fire_cone">
-				<img src="@/assets/image/image.jpg" alt="" />
-			</div>
-			<div class="fire_jidujiao">
-				<h3>垟坑基督教堂</h3>
-				<span></span>
-				<span class="jidujiao">基督教</span>
-				<div>
-					<span class="dizhi">所属机构: 瓯海区 泽雅镇</span>
-					<span class="dizhi">地址: 瓯海区泾雅镇垟坑村</span>
-				</div>
-			</div>
-			<div class="fire_map" @click="$router.push('/themap')">
-				<img src="@/assets/image/map.jpg" alt="" />
-			</div>
-		</div>
-		<!--  预警设备 -->
-		<div class="fire_alerts">
-			<div class="alerts_span">
-				<span class="span">预警设备：OH220856</span>
-				<span>预蟼时间：22-12-10</span>
-				<span class="spa">09:23:51</span>
-			</div>
-			<h3 class="alerts_h3">人流集聚</h3>
-		</div>
-		<!-- 图片 -->
-		<div class="fire_log">
-			<img src="@/assets/image/jdj.pic.jpg" alt="" />
-		</div>
-		<!-- 上报 -->
-		<div class="fire_shangbao">
-			<div class="shangbao_fire">
-				<div class="div_fire">
-					<img src="@/assets/image/shangbao1.jpg" alt="" @click="showFire" />
-				</div>
-				<div class="div_fire">
-					<img src="@/assets/image/shangbao2.jpg" alt="" @click="Fire" />
-				</div>
-				<div class="div_fire">
-					<img src="@/assets/image/shangbao3.jpg" alt="" @click="Firejingbao" />
-				</div>
-			</div>
-			<div class="fire_dh">
-				<div class="dh_fire">
-					<img src="@/assets/image/hj1.jpg" alt="" />
-				</div>
-				<div class="dh_fire">
-					<img src="@/assets/image/hj2.jpg" alt="" />
-				</div>
-				<div class="dh_fire">
-					<img src="@/assets/image/hd3.jpg" alt="" />
-				</div>
-			</div>
-		</div>
-		<!-- 消息通知 -->
-	</div>
+  <div class="container">
+    <!-- 导航部分 -->
+    <div class="fire_head">
+      <div class="fire_img">
+        <img src="@/assets/imagee.jpg" alt="" class="img" />
+      </div>
+
+      <div class="fire_text">
+        <div class="fire_d">
+          <span class="blackColor weight700 fontSize14">垟坑基督教堂</span>
+          <span class="fire_log"></span>
+          <span class="fire_span blackColor">基督教 </span>
+        </div>
+        <span class="span hasColor1">所属机构：瓯海区 泽雅镇 </span>
+        <span class="hasColor1">地址：泽雅镇垟坑基督教堂</span>
+        <div class="fire_daohang">
+          <span class="fire_icon"></span>
+          <span class="fire_icon_span blackColor">一键导航</span>
+        </div>
+      </div>
+    </div>
+    <!-- 中间 图片 -->
+    <div class="fire_conter">
+      <div class="fire_icon_img">
+        <img class="icon_img" src="@/assets/imagee.jpg" alt="" />
+      </div>
+      <!--下面文字 -->
+      <div class="fire_wenzi">
+        <span class="fire_wenzi_span blackColor"
+          >预警设备：OH220856 09:23:51
+        </span>
+        <span class="fire_wenzi_span blackColor">预警时间：2022-12-10</span>
+        <span class="wenzi_span">事件动态：</span>
+        <span class="wenzi_span blueColor">处理完成</span>
+      </div>
+      <div class="fire_conter_icon"></div>
+    </div>
+    <!-- 查看监控 -->
+    <div class="fire_view">
+      <div class="fire_view_yi">
+        <div class="fire_view_yi_span"></div>
+        <div class="blackColor fire_report">一键上报</div>
+      </div>
+      <div class="fire_view_yi">
+        <div class="fire_icon"></div>
+        <div class="blackColor fire_report">调看监控</div>
+      </div>
+      <div class="fire_view_yi">
+        <div class="fire_view_icon"></div>
+        <div class="blackColor fire_report">误报解除</div>
+      </div>
+    </div>
+  </div>
 </template>
-
 <script>
-	export default {
-		name: "Fire",
-		data() {
-			return {
-				show: false,
-			};
-		},
-		mounted() {},
-		methods: {
-			//上报
-			showFire() {
-				this.show = true;
-				this.$dialog
-					.confirm({
-						message: "是否确定上报",
-					})
-					.then(() => {
-						// on confirm
-						this.$toast({
-							message: "上报成功",
-							icon: "success"
-						});
-					})
-					.catch(() => {
-						// on cancel
-						this.$toast({
-							message: "上报失败",
-							icon: "fail"
-						});
-					});
-			},
-			//查看监控
-			Fire() {
-				this.show = true;
-				this.$dialog
-					.confirm({
-						message: "是否确定查看监控",
-					})
-					.then(() => {
-						// on confirm
-						this.$toast({
-							message: "查看监控成功",
-							icon: "success"
-						});
-					})
-					.catch(() => {
-						// on cancel
-						this.$toast({
-							message: "上报失败",
-							icon: "fail"
-						});
-					});
-			},
-			// 误报解除
-			Firejingbao() {
-				this.show = true;
-				this.$dialog
-					.confirm({
-						message: "是否确定解除误报",
-					})
-					.then(() => {
-						// on confirm
-						this.$toast({
-							message: "查看监控成功",
-							icon: "success"
-						});
-					})
-					.catch(() => {
-						// on cancel
-						this.$toast({
-							message: "上报失败",
-							icon: "fail"
-						});
-					});
-			},
-		},
-	};
+export default {
+  name: "fire",
+};
 </script>
-
 <style scoped lang="less">
-	// 头部
-	.fire_hear {
-		display: flex;
-		height: 4.9375rem;
-		margin-top: 0.9375rem;
+.fire_head {
+  height: 7.75rem;
+  margin-top: 4px;
+  display: flex;
+  background-color: #fff;
+  .fire_img {
+    width: 112px;
+    height: 96px;
+    margin: 15px 0 0 19px;
+    border-radius: 10px;
+  }
+  .fire_text {
+    flex: 1;
+    margin-left: 18px;
+    margin-top: 20px;
 
-		.fire_cone {
-			width: 6.25rem;
-			height: 4.9375rem;
-			margin-left: 1.25rem;
-		}
+    .fire_log {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      vertical-align: middle;
+      margin-left: 14px;
+      border: 1px dashed #9f9e9e;
+      background-image: url("@/assets/icon_image/img.png");
+    }
+    .fire_d {
+      margin-bottom: 10px;
+    }
+    .fire_span {
+      margin-left: 8px;
+    }
+    .span {
+      position: relative;
+      display: block;
+    }
+  }
+  .fire_daohang {
+    position: absolute;
+    width: 111px;
+    height: 55px;
+    top: 83px;
+    left: 140px;
+    border: 1px dashed #9f9e9e;
+    line-height: 55px;
+    background-image: url("@/assets/icon_image/y.png");
+    .fire_icon {
+      display: inline-block;
+      width: 29px;
+      height: 29px;
+      margin-left: 15px;
+      vertical-align: middle;
+      border: 1px dashed #9f9e9e;
+      background-image: url("@/assets/icon_image/daohang.png");
+    }
+  }
+}
+.img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+// 图片
+.fire_conter {
+  height: 20.125rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
 
-		.fire_cone img {
-			width: 7.1875rem;
-			height: 100%;
-			border-radius: 4%;
-		}
+  .fire_icon_img {
+    height: 15.375rem;
+  }
+  .fire_wenzi {
+    width: 180px;
+    height: 43px;
+    margin-top: 15px;
+    margin-left: 17px;
+  }
+  .fire_conter_icon {
+    width: 91px;
+    height: 26px;
+    margin-top: 26px;
+    margin-left: 72px;
+    border-radius: 5px;
+    background-image: url("@/assets/icon_image/huozai.png");
+  }
+  .fire_wenzi_span {
+    display: block;
+  }
+  .wenzi_span {
+    display: inline-block;
+  }
+}
 
-		.fire_jidujiao {
-			width: 10.375rem;
-			height: 4.9375rem;
-			margin-left: 0.9375rem;
-
-			h3 {
-				font-weight: 900;
-				color: #000;
-				margin-left: 0.9375rem;
-			}
-
-			.jidujiao {
-				margin-left: 0.9375rem;
-			}
-
-			.dizhi {
-				display: block;
-				color: #666;
-				margin-left: 0.625rem;
-			}
-		}
-
-		.fire_map {
-			width: 6.25rem;
-			height: 4.9375rem;
-			text-align: center;
-			justify-items: center;
-		}
-
-		.fire_map img {
-			width: 100%;
-			height: 100%;
-		}
-	}
-
-	// 预警设备
-	.fire_alerts {
-		margin-top: 1.25rem;
-		height: 2.5rem;
-		display: flex;
-
-		.alerts_span {
-			flex: 1;
-			margin-left: 1.25rem;
-		}
-
-		.span {
-			display: block;
-		}
-
-		.spa {
-			margin-left: 0.9375rem;
-		}
-
-		.alerts_h3 {
-			color: #0074b8;
-			margin-top: 15px;
-			margin-right: 20px;
-		}
-	}
-
-	// 图片
-	.fire_log {
-		height: 16.875rem;
-		margin-top: 0.625rem;
-	}
-
-	.fire_log img {
-		width: 100%;
-		height: 100%;
-	}
-
-	// 上报
-	.fire_shangbao {
-		margin-top: 0.9375rem;
-		height: 8.75rem;
-
-		.shangbao_fire {
-			height: 4.375rem;
-			display: flex;
-			align-items: center;
-			justify-items: center;
-		}
-
-		.div_fire {
-			width: 6.1875rem;
-			height: 3.1875rem;
-
-			margin-left: 1.25rem;
-		}
-
-		.fire_dh {
-			height: 4.375rem;
-			display: flex;
-			align-items: center;
-			justify-items: center;
-		}
-
-		.dh_fire {
-			width: 6.1875rem;
-			height: 3.1875rem;
-			margin-left: 1.25rem;
-		}
-	}
+.icon_img {
+  width: 100%;
+  height: 100%;
+}
+// 查看监控
+.fire_view {
+  height: 84px;
+  margin-top: 9px;
+  display: flex;
+  align-items: center;
+  justify-items: space-between;
+  background-color: #f6f6f6;
+  .fire_view_yi {
+    width: 104px;
+    height: 35px;
+    margin-left: 15px;
+    display: flex;
+    line-height: 35px;
+    border-radius: 8px;
+    background-color: #fff;
+    .fire_view_yi_span {
+      width: 50px;
+      height: 35px;
+      background-color: #eaf3f8;
+      background: url("@/assets/icon_image/shuju.png") no-repeat center;
+    }
+    .fire_icon {
+      width: 50px;
+      height: 35px;
+      background-color: #eaf3f8;
+      background: url("@/assets/icon_image/jk.png") no-repeat center;
+    }
+    .fire_view_icon {
+      width: 50px;
+      height: 35px;
+      background-color: #eaf3f8;
+      background: url("@/assets/icon_image/kaisuo.png") no-repeat center;
+    }
+    .fire_report {
+      padding-right: 5px;
+    }
+  }
+}
 </style>

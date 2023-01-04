@@ -19,7 +19,7 @@
         </div>
       </div>
       <!-- 文字 -->
-      <div class="home_writing" @click="$router.push('/homewiting')">
+      <div class="home_writing" @click="$router.push('/Article/Info')">
         <h1 class="home_writing_h3">习近平:坚持我国宗教中国化方向</h1>
         <span class="home_writing_span">部分详情内容显示...</span>
       </div>
@@ -34,7 +34,7 @@
         </div>
       </div>
       <!-- 文字 -->
-      <div class="home_writing" @click="$router.push('/homewiting')">
+      <div class="home_writing" @click="$router.push('/Article/Info')">
         <h1 class="home_writing_h3">习近平:坚持我国宗教中国化方向</h1>
         <span class="home_writing_span">部分详情内容显示...</span>
       </div>
