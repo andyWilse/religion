@@ -12,10 +12,10 @@
 						身份证号：3303***********017
 					</div>
 					<div class="people-content-line">
-							手机号码：<span class="blueColor">138****744</span>
+						手机号码：<span class="blueColor">138****744</span>
 					</div>
 					<div class="people-content-line">
-							关联教派：基督教
+						关联教派：基督教
 					</div>
 				</div>
 			</div>

@@ -34,11 +34,17 @@ const routes = [
     name: 'Themap',
     component: () => import('@/views/Themap/Themap.vue')
   },
-  // 监控预警
+  // 监控
   {
     path: "/alerts",
     name: 'Alerts',
     component: () => import('@/views/Alerts/Alerts')
+  },
+  // 监控-查看
+  {
+    path: "/alerts/See",
+    name: 'AlertsSee',
+    component: () => import('@/views/Alerts/See')
   },
   //  我的 
   {
