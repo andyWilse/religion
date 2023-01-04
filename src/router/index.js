@@ -9,7 +9,12 @@ const routes = [
     name: 'home',
     component: () => import('@/views/Home/Home')
   },
-  
+  //文章详情 HomeWiting
+  {
+    path: '/homewiting',
+    name: 'HomeWiting',
+    component: () => import('@/views/Home/HomeWiting')
+  },
   //  政策宣传详情
   {
     path: '/Article/Info',
@@ -46,14 +51,14 @@ const routes = [
     path: "/ltsmine/handle",
     name: "handle",
     component: () => import('@/views/ItsMine/handle')
-  }, 
-   
-   //  任务-发起
-   {
-     path: "/ltsmine/launch",
-     name: "launch",
-     component: () => import('@/views/ItsMine/launch')
-   }, 
+  },
+
+  //  任务-发起
+  {
+    path: "/ltsmine/launch",
+    name: "launch",
+    component: () => import('@/views/ItsMine/launch')
+  },
 
   {
     path: "/fire",
