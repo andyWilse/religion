@@ -66,12 +66,7 @@ const routes = [
     name: "Fire",
     component: () => import('@/views/Fire/Fire')
   },
-  //巡查上报
-  {
-    path: '/patrol',
-    name: 'Patrol',
-    component: () => import('@/views/Patrol/Patrol')
-  }
+
 ]
 
 const router = new VueRouter({
