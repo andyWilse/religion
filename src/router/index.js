@@ -6,9 +6,16 @@ const routes = [
   // 首页
   {
     path: '/',
+    name: 'userHome',
+    component: () => import('@/views/Home/userHome')
+  },
+  // 待定
+  {
+    path: '/home',
     name: 'home',
     component: () => import('@/views/Home/Home')
   },
+
 
   //  政策宣传详情
   {
