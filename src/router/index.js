@@ -38,13 +38,25 @@ const routes = [
   },
   // 监控
   {
+    path: "/monitor",
+    name: 'Monitor',
+    component: () => import('@/views/Monitor/Index')
+  },
+  // 监控-搜索
+  {
+    path: "/monitor/search",
+    name: 'Search',
+    component: () => import('@/views/Monitor/Search')
+  },
+  // 监控-保修
+  {
     path: "/alerts",
     name: 'Alerts',
     component: () => import('@/views/Alerts/Alerts')
   },
   // 监控-查看
   {
-    path: "/alerts/See",
+    path: "/alerts/see",
     name: 'AlertsSee',
     component: () => import('@/views/Alerts/See')
   },

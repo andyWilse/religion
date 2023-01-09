@@ -1,7 +1,7 @@
 <template>
 	<div class="page padding15">
 		<div class="title fontSize14 weight700 blackColor">
-			我的任务
+			发起备案
 		</div>
 		<div class="form">
 			<div class="block block-line">
@@ -32,7 +32,7 @@
 				<div class="right hasColor1 marginLeft15">
 					<div class="block-line" @click="showTimePicker = true">
 						<div class="left blackColor" v-if="date">{{ date }}</div>
-						<div class="left" v-else>请选择发起时间</div>
+						<div class="left" v-else>请选择任务时间</div>
 						<van-icon name="arrow-down" />
 					</div>
 					<van-popup v-model="showTimePicker" position="bottom">
@@ -50,7 +50,7 @@
 					任务地点
 				</div>
 				<div class="right blueColor1 marginLeft15">
-					<input class="input" type="text" placeholder="请填写准确地点">
+					<input class="input" type="text" placeholder="请填写准确任务场所">
 				</div>
 			</div>
 			<div class="block">
@@ -62,7 +62,7 @@
 			</div>
 			<div class="block block-line">
 				<div class="left fontSize14 weight700">
-					移交给
+					谁来执行
 				</div>
 				<van-icon class="blueColor1" name="add-o" size="18" />
 			</div>
@@ -72,6 +72,9 @@
 				</div>
 				<van-icon class="blueColor1" name="add-o" size="18" />
 			</div>
+			<view class="btns">
+				<image class="submit" src="/static/images/icon007.png" mode="widthFix" @tap="navigationTo('activity/add')"></image>
+			</view>
 			<div class="submit fontSize14 whiteColor weight700">
 				提交
 			</div>
@@ -85,7 +88,7 @@
 		data() {
 			return {
 				type: {id: 0,name: ''},
-				date: '2023-01-05',
+				date: '',
 				showPicker: false,
 				showTimePicker: false,
 				fileList: [],

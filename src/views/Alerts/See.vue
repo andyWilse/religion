@@ -1,7 +1,10 @@
 <template>
 	<div class="page">
 		<van-search v-model="searchName" background="#F6F6F6" placeholder="输入场所名称、设备编号查询" />
-		<div class="screen">
+		<div class="screen-title fontSize12 weight700" v-if="source == 'search'">
+			茶山街道 - 王某某
+		</div>
+		<div class="screen" v-else>
 			<div class="screen-block" @click="showChurch = true">
 				<div class="screen-block-name fontSize14 weight700">{{ church.name || '选择教派' }}</div>
 				<img class="screen-block-icon" src="/images/icon004.png">
@@ -89,6 +92,7 @@
 		},
 		data() {
 			return {
+				source: '',
 				searchName: '',
 				telShow: false,
 				phone: '',
@@ -111,6 +115,9 @@
 					{id: 3, name: '街道3'},
 				],
 			}
+		},
+		created() {
+			this.source = this.$route.query.source || '';
 		},
 		methods: {
 			/**
@@ -154,6 +161,11 @@
 	
 	.van-search .van-cell{
 		padding: 10px 8px 10px 0;
+	}
+	
+	.screen-title{
+		background-color: #F6F6F6;
+		padding: 0px 15px 10px;
 	}
 	
 	.screen{

@@ -64,7 +64,9 @@
 				</div>
 			</div>
 		</div>
-		<img class="addBtn" src="/images/icon003.png" @click="$router.push('/ltsmine/launch')">
+		<div class="btns">
+			<img class="addBtn" src="/images/icon003.png" @click="$router.push('/ltsmine/launch')">
+		</div>
 	</div>
 </template>
 
@@ -193,13 +195,26 @@
 			}
 		}
 	}
-
-	.addBtn{
-		width: 100px;
-		height: auto;
+	
+	.btns{
+		display: flex;
+		justify-content: center;
 		position: fixed;
-		bottom: 70px;
-		left: 35vw;
+		bottom: 60px;
+		left: 33vw;
 		z-index: 10;
+		
+		.addBtn{
+			width: 34vw;
+		}
 	}
+
+	// .addBtn{
+	// 	width: 100px;
+	// 	height: auto;
+	// 	position: fixed;
+	// 	bottom: 70px;
+	// 	left: 35vw;
+	// 	z-index: 10;
+	// }
 </style>

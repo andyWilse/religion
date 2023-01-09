@@ -51,7 +51,7 @@
 			</div>
 			<div class="block block-line">
 				<div class="left fontSize14 weight700">
-					移交给
+					谁来执行
 				</div>
 				<div class="right blueColor1">
 					<van-icon name="add-o" size="18" />

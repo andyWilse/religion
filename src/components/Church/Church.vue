@@ -3,7 +3,7 @@
 		<div class="title">
 			<div class="title-left">
 				<div class="titlt-left-top">
-					<div class="title-name weight700">
+					<div class="title-name fontSize18 weight700">
 						洋坑基督教堂
 					</div>
 					<div class="title-type">
@@ -48,7 +48,7 @@
 		</div>
 		<!-- 信息块 -->
 		<div class="block">
-			<div class="block-title fontSize16 blackColor weight700">
+			<div class="block-title fontSize14 blackColor weight700">
 				基本信息
 				<van-icon name="arrow" color="#c8c8c8" />
 			</div>
@@ -91,15 +91,29 @@
 		</div>
 		<!-- 信息块 -->
 		<div class="block">
-			<div class="block-title fontSize16 blackColor weight700">
-				简介
+			<div class="block-title fontSize14 blackColor weight700">
+				关联活动
 				<van-icon name="arrow-down" color="#c8c8c8" />
 			</div>
 		</div>
 		<!-- 信息块 -->
 		<div class="block">
-			<div class="block-title fontSize16 blackColor weight700">
+			<div class="block-title fontSize14 blackColor weight700">
 				教职人员
+				<van-icon name="arrow-down" color="#c8c8c8" />
+			</div>
+		</div>
+		<!-- 信息块 -->
+		<div class="block">
+			<div class="block-title fontSize14 blackColor weight700">
+				监管干部
+				<van-icon name="arrow-down" color="#c8c8c8" />
+			</div>
+		</div>
+		<!-- 信息块 -->
+		<div class="block">
+			<div class="block-title fontSize14 blackColor weight700">
+				三人驻堂
 				<van-icon name="arrow-down" color="#c8c8c8" />
 			</div>
 		</div>
@@ -164,7 +178,6 @@
 		height: 64vh;
 		overflow-x: auto;
 		padding: 5%;
-		// padding-top: 10vh;
 		background-color: #FFFFFF;
 		position: absolute;
 		bottom: 0px;
@@ -182,10 +195,6 @@
 			.titlt-left-top{
 				display: flex;
 				align-items: center;
-				
-				.title-name{
-					font-size: 18px;
-				}
 				
 				.title-type{
 					display: flex;

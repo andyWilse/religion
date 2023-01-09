@@ -20,6 +20,7 @@
 					<div class="right fontSize14 weight700 whiteColor">
 						<div class="btn info" v-if="item.status == 1">去处理</div>
 						<div class="btn" v-else-if="item.status == 2">未解决</div>
+						<div class="hasColor2" v-else-if="item.status == 3">已解决</div>
 					</div>
 				</div>
 			</div>
@@ -32,7 +33,7 @@
 		data() {
 			return {
 				searchName: '',
-				list: [{status: 1},{status: 2},{status: 1},{status: 1},{status: 1},{status: 1}],
+				list: [{status: 1},{status: 2},{status: 1},{status: 1},{status: 3},{status: 3}],
 			};
 		},
 		mounted() {
@@ -76,7 +77,7 @@
 				
 				.right{
 					.btn{
-						padding: 2px 10px;
+						padding: 2px 8px;
 						background: #9B2E25;
 						border-radius: 5px;
 					}

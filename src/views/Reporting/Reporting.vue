@@ -8,49 +8,47 @@
 		<!-- 垟坑基督教堂 -->
 		<div class="home_top" v-for="(item, index) in urgent" :key="index">
 			<div class="home_left">
-				<img src="@/assets/imagee.jpg" alt="" class="img" />
+				<img src="@/assets/imagee.jpg" class="img" @click.stop="$ImagePreview([require('@/assets/imagee.jpg')])" />
 			</div>
 			<!-- 文字 -->
 			<div class="home_conter">
 				<div class="home_conter_left">
-					<span class="conter_span">垟坑基督教堂</span>
-					<span class="span_log"></span>
+					<span class="conter_span weight700">垟坑基督教堂</span>
+					<van-tag type="primary" plain round text-color="#9B2E25" style="background-color: #FCEFEE;font-weight: bold;" v-if="item.type == 1">火灾预警</van-tag>
+					<van-tag type="primary" plain round text-color="#1A559A" style="background-color: #E9F2F8;font-weight: bold;" v-if="item.type == 2">人脸识别</van-tag>
 				</div>
 				<div class="conter_span_s">
 					<span class="span_item">时间:2022-12-09 08:21:11 </span>
 				</div>
 			</div>
 			<div class="home_rigth">
-				<div class="home_rigth_span fontSize14 weight700 whiteColor" v-if="item.type == 1"
+				<img class="home_rigth_span" src="/images/icon005.png" v-if="item.type == 1"
 					@click="$router.push('/fire')">
-					警告
-				</div>
-				<div class="home_rigth_span seeBack fontSize14 weight700 hasColor2" v-else-if="item.type == 2"
+				<img class="home_rigth_span" src="/images/icon006.png" v-if="item.type == 2"
 					@click="$router.push('/fire')">
-					查看
-				</div>
 			</div>
 		</div>
 
 		<!--  log 图标 -->
 		<div class="reporting_log">
-			<van-badge content="85例">
-				<div class="reporting_log_yi"></div>
-				<span class="span weight700">人脸识别</span>
+			<van-badge content="85例" color="#1A559A">
+				<img class="reporting_log_icon" src="/images/icon007.png" alt="">
+				<div class="weight700 marginTop10">人脸识别</div>
 			</van-badge>
-			<van-badge content="12例">
-				<div class="reporting_log_er"></div>
-				<span class="spans weight700">人流集聚</span>
+			<van-badge content="12例" color="#9A7A19">
+				<img class="reporting_log_icon" src="/images/icon008.png" alt="">
+				<div class="weight700 marginTop10">人流集聚</div>
 			</van-badge>
-			<van-badge content="1例">
-				<div class="reportion_log_san"></div>
-				<span class="spans weight700">火灾预警</span>
+			<van-badge content="1例" color="#9B2E25">
+				<img class="reporting_log_icon" src="/images/icon009.png" alt="">
+				<div class="weight700 marginTop10">火灾预警</div>
 			</van-badge>
-			<van-badge content="19例">
+			<!-- <van-badge content="19例">
 				<div class="reportion_log_si"></div>
 				<span class="spans weight700">任务预警</span>
-			</van-badge>
+			</van-badge> -->
 		</div>
+		
 		<!-- 预警事件台账 -->
 		<div class="ledger">
 			<!-- 全部 -->
@@ -63,13 +61,14 @@
 					<!-- 火灾预警 -->
 					<div class="ledger_div_contain" v-for="(item, index) in list" :key="index">
 						<div class="ledger_left">
-							<img src="@/assets/imagee.jpg" alt="" class="ledger_left_img" />
+							<img src="@/assets/imagee.jpg" class="ledger_left_img" @click.stop="$ImagePreview([require('@/assets/imagee.jpg')])" />
 						</div>
 						<!-- 文字 -->
 						<div class="ledger_conter">
 							<div class="home_conter_left">
 								<span class="ledger_span weight700">垟坑基督教堂</span>
-								<span class="ledger_log"></span>
+								<van-tag type="primary" plain round text-color="#9B2E25" style="background-color: #FCEFEE;font-weight: bold;" v-if="item.type == 1">火灾预警</van-tag>
+								<van-tag type="primary" plain round text-color="#1A559A" style="background-color: #E9F2F8;font-weight: bold;" v-if="item.type == 2">人脸识别</van-tag>
 							</div>
 							<div class="ledger_span_s">
 								<span class="ledger_item">时间:2022-12-09 08:21:11 </span>
@@ -92,6 +91,7 @@
 		</div>
 	</div>
 </template>
+
 <script>
 	export default {
 		name: "Reporting",
@@ -103,14 +103,24 @@
 				}, {
 					type: 2
 				}], // 紧急事件
-				list: [1, 2, 3],
+				list: [
+					{type: 1},
+					{type: 1},
+					{type: 2},
+				],
 			};
 		},
-		methods: {},
+		methods: {
+		},
 	};
 </script>
 
 <style scoped lang="less">
+	::v-deep .van-tag{
+		padding: 2px 5px;
+		margin-left: 10px;
+	}
+	
 	.home_fire {
 		padding-top: 10px;
 
@@ -163,15 +173,6 @@
 				font-size: 13px;
 			}
 
-			.span_log {
-				display: inline-block;
-				width: 58px;
-				height: 18px;
-				margin-left: 8px;
-				background-image: url("@/assets/image/组1.png");
-				vertical-align: middle;
-			}
-
 			.conter_span_s {
 				margin-left: 13px;
 				margin-top: 9px;
@@ -193,8 +194,8 @@
 				align-items: center;
 				width: 44px;
 				height: 44px;
-				background-color: #9b2e25;
-				border-radius: 44px;
+				// background-color: #9b2e25;
+				// border-radius: 44px;
 			}
 
 			.seeBack {
@@ -204,6 +205,9 @@
 	}
 
 	// tab 栏切换
+	.ledger{
+		border-top: 10px solid #f6f6f6;
+	}
 	.ledger_div {
 		height: 30px;
 		line-height: 30px;
@@ -292,67 +296,23 @@
 
 	// 图标
 	.reporting_log {
-		height: 6.25rem;
-		margin-top: 10px;
+		padding: 10px 20px;
 		text-align: center;
 		background-color: #ffffff;
 		display: flex;
-		border-bottom: 10px solid #f6f6f6;
+		justify-content: space-between;
+		// border-bottom: 10px solid #f6f6f6;
 
-		.reporting_log_yi {
-			width: 54px;
+		.reporting_log_icon {
+			width: 95px;
 			height: 54px;
-			margin-top: 17px;
-			margin-left: 28px;
-			margin-bottom: 5px;
-			background-image: url("@/assets/image/zhu.png");
-			border-radius: 4px;
-		}
-
-		.span {
-			font-weight: 900;
-			color: #000000;
-			margin-left: 20px;
-		}
-
-		.spans {
-			font-weight: 900;
-			color: #000000;
-			margin-left: 35px;
 		}
 
 		::v-deep .van-badge--fixed {
 			position: absolute;
-			top: 22px;
-			right: 5px;
-			background-color: #1a559a;
-		}
-
-		.reporting_log_er {
-			width: 54px;
-			height: 54px;
-			margin-top: 17px;
-			margin-left: 34px;
-			margin-bottom: 5px;
-			background-image: url("@/assets/image/qun.png");
-		}
-
-		.reportion_log_san {
-			width: 54px;
-			height: 54px;
-			margin-top: 17px;
-			margin-left: 34px;
-			margin-bottom: 5px;
-			background-image: url("@/assets/image/huo.png");
-		}
-
-		.reportion_log_si {
-			width: 54px;
-			height: 54px;
-			margin-top: 17px;
-			margin-left: 34px;
-			margin-bottom: 5px;
-			background-image: url("@/assets/image/jingbao.png");
+			top: 5px;
+			right: 15px;
+			padding: 1px 4px;
 		}
 	}
 </style>

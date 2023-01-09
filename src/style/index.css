@@ -85,6 +85,10 @@ body {
 	font-size: 18px;
 }
 
+.fontSize30{
+	font-size: 30px;
+}
+
 .textAlignCenter{
 	text-align: center;
 }
@@ -93,15 +97,23 @@ body {
 	color: #000000;
 }
 
+.blackColor1{
+	color: #282828;
+}
+
 .hasColor{
 	color: #c8c8c8;
 }
 
 .hasColor1{
-	color: #9f9e9e;
+	color: #9F9E9E;
 }
 
 .hasColor2{
+	color: #6C7B83;
+}
+
+.hasColor3{
 	color: #6C7B84;
 }
 
@@ -161,6 +173,10 @@ body {
 	margin-left: 15px
 }
 
+.marginBottom10{
+	margin-bottom: 10px
+}
+
 .textHide1{
 	text-overflow: -o-ellipsis-lastline;
 	overflow: hidden;
@@ -179,4 +195,9 @@ body {
 	-webkit-line-clamp: 3;
 	line-clamp: 3;
 	-webkit-box-orient: vertical;
+}
+
+.empty{
+	width: 100%;
+	height: 60px;
 }

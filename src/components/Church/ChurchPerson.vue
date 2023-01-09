@@ -22,7 +22,7 @@
     </div>
     <!-- 信息块 -->
     <div class="block">
-      <div class="block-title fontSize16 blackColor weight700">
+      <div class="block-title fontSize14 blackColor weight700">
         关联场所
         <van-icon name="arrow" color="#c8c8c8" />
       </div>
@@ -61,14 +61,14 @@
     </div>
     <!-- 信息块 -->
     <div class="block">
-      <div class="block-title fontSize16 blackColor weight700">
+      <div class="block-title fontSize14 blackColor weight700">
         基本信息
         <van-icon name="arrow-down" color="#c8c8c8" />
       </div>
     </div>
     <!-- 信息块 -->
     <div class="block">
-      <div class="block-title fontSize16 blackColor weight700">
+      <div class="block-title fontSize14 blackColor weight700">
         关联活动
         <van-icon name="arrow-down" color="#c8c8c8" />
       </div>

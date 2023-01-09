@@ -9,8 +9,10 @@ import '@/style/index.css'
 Vue.use(Vant)
 Vue.use(VueAMap)
 
-import { Toast } from "vant";
+import { Toast , ImagePreview } from "vant";
 Vue.use(Toast); 
+
+Vue.prototype.$ImagePreview = ImagePreview
 
 // import Utils from '@/utils/utils';
 // Vue.use(Utils)
