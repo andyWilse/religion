@@ -17,16 +17,16 @@
 			</div>
 			<div class="bottom hasColor1">
 				<div class="bottom-line">
-					地址：泽雅镇垟坑基督教堂
+					地址：<span class="blackColor1">泽雅镇垟坑基督教堂</span>
 				</div>
 				<div class="bottom-line">
-					时间：2022-12-09 08:21:11
+					时间：<span class="blackColor1">2022-12-09 08:21:11</span>
 				</div>
 				<div class="bottom-line">
-					发起者：平台预警
+					发起者：<span class="blackColor1">平台预警</span>
 				</div>
 				<div class="bottom-line">
-					任务描述：摄像头不在线，请及时检查设备及网络.
+					任务描述：<span class="blackColor1">摄像头不在线，请及时检查设备及网络.</span>
 				</div>
 			</div>
 		</div>
@@ -49,14 +49,14 @@
 					</van-radio-group>
 				</div>
 			</div>
-			<div class="block block-line">
+			<!-- <div class="block block-line">
 				<div class="left fontSize14 weight700">
 					谁来执行
 				</div>
 				<div class="right blueColor1">
 					<van-icon name="add-o" size="18" />
 				</div>
-			</div>
+			</div> -->
 			<div class="block block-line">
 				<div class="left fontSize14 weight700">
 					抄送给
@@ -143,7 +143,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			border-bottom: 1px dashed #000000;
+			border-bottom: 1px dashed #9B2E25;
 
 			.right {
 				.btn {
@@ -167,9 +167,9 @@
 		}
 
 		.bottom {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
+			// display: flex;
+			// align-items: center;
+			// justify-content: space-between;
 			padding: 10px 0px;
 		}
 	}

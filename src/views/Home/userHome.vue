@@ -96,9 +96,12 @@
 		
 		<!-- 宣传教育 -->
 		<div class="block give padding10-0 marginBottom10">
-			<div class="userhome_fire">
-				<span class="user_spn_fire"> </span>
-				<span class="user_fire_lis weight700">宣传教育</span>
+			<div class="title">
+				<div class="userhome_fire">
+					<span class="user_spn_fire"> </span>
+					<span class="user_fire_lis weight700">宣传教育</span>
+				</div>
+				<div class="more hasColor1">更多</div>
 			</div>
 			<!-- 首页图片 -->
 			<div class="home_container">
@@ -403,22 +406,6 @@
 				border-bottom: 1px solid #e9e9e9;
 			}
 
-			.top_span {
-				display: inline-block;
-				width: 58px;
-				height: 18px;
-				margin-right: 10px;
-				background-image: url("@/assets/icon_image/icon_log1.png");
-			}
-
-			.top_span1 {
-				display: inline-block;
-				width: 58px;
-				height: 18px;
-				margin-right: 10px;
-				background-image: url("@/assets/icon_image/icon_log2.png");
-			}
-
 			.marginLeft14 {
 				margin-right: 15px;
 			}
@@ -484,6 +471,12 @@
 
 	// 首页文章
 	.give{
+		.title:extend(.flexCenterBetween){
+			.more{
+				margin-right: 12px;
+			}
+		}
+		
 		.give-list{
 			background-color: #ffffff;
 			padding: 0px 12px;
