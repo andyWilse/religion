@@ -1,8 +1,6 @@
 <template>
 	<div class="page">
-		<!-- <van-sticky> -->
-			<van-search v-model="searchName" background="#F6F6F6" placeholder="输入场所名称、设备编号查询" />
-		<!-- </van-sticky> -->
+		<van-search v-model="searchName" background="#F6F6F6" placeholder="输入场所名称、设备编号查询" />
 		<div class="title fontSize12 weight700">
 			茶山街道 - 王某某
 		</div>
@@ -32,7 +30,7 @@
 				</div>
 			</van-badge>
 		</div>
-		<div class="list padding15" :class="[tableIndex != 3 ? 'list-border-bottom' : '']">
+		<div class="list padding15">
 			<div class="list-title fontSize14 weight700 blackColor">
 				设备情况
 			</div>
@@ -53,37 +51,12 @@
 					<div class="left left3">
 						<img class="table-icon" src="/images/icon021.png" alt="">
 					</div>
-					<div class="right fontSize12 weight700">报修设备</div>
+					<div class="right fontSize12 weight700">保修设备</div>
 				</div>
 			</div>
-			
 		</div>
 		<div class="deviceList">
-			<!-- 报修设备 -->
-			<div class="camera" v-if="tableIndex == 3">
-				<div class="li" v-for="(item , index) in list" :key="index" @click="$router.push('/alerts/See')">
-					<div class="top fontSize14 blackColor weight700">
-						摄像头FJa00215401检查
-					</div>
-					<div class="bottom">
-						<div class="left">
-							<div class="left-line hasColor1">
-								地址：泽雅镇垟坑基督教堂
-							</div>
-							<div class="left-line hasColor1">
-								时间：2022-12-09 08:21:11
-							</div>
-						</div>
-						<div class="right fontSize14 weight700 whiteColor">
-							<div class="btn info" v-if="item.status == 1">去处理</div>
-							<div class="btn" v-else-if="item.status == 2">未解决</div>
-							<div class="hasColor2" v-else-if="item.status == 3">已解决</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- 宗教场所 -->
-			<div class="device padding15" v-for="(item , index) in list" :key="index" v-else>
+			<div class="device padding15" v-for="(item , index) in list" :key="index">
 				<div class="device-name fontSize14 blackColor weight700">卧云禅寺</div>
 				<div class="device-msg hasColor1">温州市瓯海区雪山路367号景山公园内</div>
 			</div>
@@ -156,8 +129,9 @@
 			margin-top: 5px;
 		}
 	}
-	
+
 	.list{
+		border-bottom: 1px solid #f6f6f6;
 		
 		.list-title{
 			position: relative;
@@ -234,50 +208,9 @@
 				}
 			}
 		}
-		
-		
 	}
 
-	
-	.list-border-bottom{
-		border-bottom: 1px solid #f6f6f6;
-	}
-	
 	.deviceList{
-		// 保修设备
-		.camera{
-			padding: 0px 15px;
-			
-			.li{
-				padding: 0px 15px;
-				background: #FFFFFF;
-				box-shadow: 0px 0px 27px 0px rgba(232,232,232,0.54);
-				border-radius: 10px;
-				margin-bottom: 10px;
-				
-				.top:extend(.flexCenterBetween){
-					padding: 10px 0px;
-					border-bottom: 1px solid #E9E9E9;
-				}
-				
-				.bottom:extend(.flexCenterBetween){
-					padding: 10px 0px;
-					
-					.right{
-						.btn{
-							padding: 2px 8px;
-							background: #9B2E25;
-							border-radius: 5px;
-						}
-						
-						.info{
-							background: #1A559A;
-						}
-					}
-				}
-			}
-		}
-		
 		.device{
 			border-bottom: 10px solid #F6F6F6;
 		}

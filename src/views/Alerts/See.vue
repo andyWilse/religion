@@ -18,47 +18,42 @@
 			<img src="/images/img001.jpg">
 		</div>
 		<div class="con padding15">
-			<div class="block">
-				<div class="title">
-					<div class="title-name fontSize14 weight700">切换摄像头</div>
-					<van-icon class="hasColor1" name="arrow-down" />
-				</div>
-			</div>
-			<div class="block">
-				<div class="title">
-					<div class="title-name fontSize14 weight700">历史回看</div>
-					<van-icon class="hasColor1" name="arrow-down" />
-				</div>
-			</div>
-			<div class="block">
-				<div class="title">
-					<div class="title-name fontSize14 weight700">场所概况</div>
-					<van-icon class="hasColor1" name="arrow" />
-				</div>
-				<div class="content hasColor1">
-					<div class="line">
-						场所名称：**寺
+			<van-collapse v-model="activeNames">
+				<van-collapse-item title="切换摄像头" name="1">
+					<div class="content hasColor1 fontSize12">
+						<div class="camera" v-for="(item , index) in cameraList" :key="index">
+							<img class="camera-icon" src="/images/icon016.png">
+							<div class="name fontSize14 blueColor weight700">监控1-前门：FJA057401</div>
+						</div>
 					</div>
-					<div class="line">
-						设备编号：fj4659601
+				</van-collapse-item>
+				<van-collapse-item title="历史回看" name="2">内容</van-collapse-item>
+				<van-collapse-item title="场所概况" name="3">
+					<div class="content hasColor1 fontSize12">
+						<div class="line">
+							场所名称：**寺
+						</div>
+						<div class="line">
+							设备编号：fj4659601
+						</div>
+						<div class="line">
+							所属机构：瓯海区 泽雅镇
+						</div>
+						<div class="line">
+							登记证号：宗教证字（浙）J030030096
+						</div>
+						<div class="line">
+							第一负责人：陈*旺 <span class="blueColor1" @click="tel('138****744')">138****744</span>
+						</div>
+						<div class="line">
+							工作联络员：陈*旺 <span class="blueColor1" @click="tel('138****744')">138****744</span>
+						</div>
+						<div class="line">
+							场所电话：<span class="blueColor1" @click="tel('0577-88511932')">0577-88511932</span> 
+						</div>
 					</div>
-					<div class="line">
-						所属机构：瓯海区 泽雅镇
-					</div>
-					<div class="line">
-						登记证号：宗教证字（浙）J030030096
-					</div>
-					<div class="line">
-						第一负责人：陈*旺 <span class="blueColor1" @click="tel('138****744')">138****744</span>
-					</div>
-					<div class="line">
-						工作联络员：陈*旺 <span class="blueColor1" @click="tel('138****744')">138****744</span>
-					</div>
-					<div class="line">
-						场所电话：<span class="blueColor1" @click="tel('0577-88511932')">0577-88511932</span> 
-					</div>
-				</div>
-			</div>
+				</van-collapse-item>
+			</van-collapse>
 		</div>
 		<DialTel :telShow="telShow" :tel="phone" @close="telShow = false"></DialTel>
 		<!-- 选择教派 -->
@@ -114,6 +109,8 @@
 					{id: 2, name: '街道2'},
 					{id: 3, name: '街道3'},
 				],
+				activeNames: ['3'],
+				cameraList: [1,2,3]
 			}
 		},
 		created() {
@@ -198,17 +195,57 @@
 	}
 	
 	.con{
-		.block{
-			.title{
+		::v-deep .van-cell {
+			padding: 10px 0px;
+		}
+		
+		::v-deep .van-cell__title {
+			font-size: 14px;
+			color: #000000;
+			font-weight: 700;
+		}
+		
+		::v-deep .van-hairline--top-bottom::after {
+			border-width: 0px;
+		}
+		
+		::v-deep .van-collapse-item--border::after,
+		::v-deep .van-cell::after {
+			left: 0px;
+			right: 0px;
+		}
+		
+		::v-deep .van-collapse-item--border::after,
+		::v-deep .van-cell::after{
+			border-top: 1px dashed #c8c8c8;
+		}
+		
+		::v-deep .van-collapse-item__content {
+			padding: 0px;
+		}
+		
+		.content{
+			padding: 10px 0px;
+			
+			.camera{
+				background-color: #E9F2F8;
+				border: 1px solid #1A559A;
+				border-radius: 22px;
 				display: flex;
 				align-items: center;
-				justify-content: space-between;
-				border-bottom: 1px dashed #C8C8C8;
-				padding: 10px 0px;
+				padding: 2px 5px;
+				width: 175px;
+				margin-bottom: 10px;
+				
+				.camera-icon{
+					width: 14px;
+					height: 15px;
+					margin-right: 7px;
+				}
 			}
 			
-			.content{
-				padding: 10px 0px;
+			.camera:last-child{
+				margin-bottom: 0px;
 			}
 		}
 	}
