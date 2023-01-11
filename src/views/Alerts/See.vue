@@ -15,7 +15,8 @@
 			</div>
 		</div>
 		<div class="video">
-			<img src="/images/img001.jpg">
+			<div id="dplayer"></div>
+			<!-- <img src="/images/img001.jpg"> -->
 		</div>
 		<div class="con padding15">
 			<van-collapse v-model="activeNames">
@@ -80,6 +81,8 @@
 </template>
 
 <script>
+	import flvjs from 'flv.js';
+	import DPlayer from 'dplayer';	
 	import DialTel from "@/components/DialTel/DialTel.vue";
 	export default {
 		components: {
@@ -110,13 +113,59 @@
 					{id: 3, name: '街道3'},
 				],
 				activeNames: ['3'],
-				cameraList: [1,2,3]
+				cameraList: [1,2,3],
+				
+				// 视频信息
+				dp: {}, // 视频对象
+				duration: 0, // 视频总时长
+				live: false, // 是否直播
+				// videoUrl: '/11.flv',
+				videoUrl: 'http://wz10.qqy189.com:12321/live/12209800010000758301.flv',
 			}
+		},
+		watch: {
+			live(n , o){
+				if(n) this.loadVideo();
+			}
+		},
+		mounted(){
+			this.loadVideo();
 		},
 		created() {
 			this.source = this.$route.query.source || '';
 		},
 		methods: {
+			/**
+			 * 播放视频
+			 */
+			loadVideo(){
+				let that = this;
+				
+				that.dp = new DPlayer({
+				    container: document.getElementById('dplayer'),
+					live: that.live,
+				    video: {
+				        url: that.videoUrl,
+				        type: 'customFlv',
+				        customType: {
+				            customFlv: function (video, player) {
+								console.log('customFlv' , video);
+				                const flvPlayer = flvjs.createPlayer({
+				                    type: 'flv',
+				                    url: that.videoUrl,
+				                });
+				                flvPlayer.attachMediaElement(video);
+				                flvPlayer.load();
+				            },
+				        },
+				    },
+				});
+				
+				that.dp.on('canplay' , function(){
+					that.duration = that.dp.video.duration;
+					that.live = that.duration == 'Infinity' ? true : false;
+				});
+			},
 			/**
 			 * 拨打电话
 			 * @param {Object} phone

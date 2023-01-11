@@ -38,6 +38,12 @@ const routes = [
   },
   // 监控-截图
   {
+    path: "/monitor/video",
+    name: 'MonitorVideo',
+    component: () => import('@/views/Monitor/video')
+  },
+  // 监控-截图
+  {
     path: "/monitor/screenshot",
     name: 'MonitorScreenshot',
     component: () => import('@/views/Monitor/Screenshot')

@@ -20,7 +20,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- 中间 图片 -->
+		<!-- 摄像头 -->
 		<div class="fire_icon_img marginTop10">
 			<img class="icon_img" src="@/assets/imagee.jpg" alt="" />
 		</div>
@@ -75,6 +75,7 @@
 <script>
 	export default {
 		name: "fire",
+		
 	};
 </script>
 <style scoped lang="less">
