@@ -11,25 +11,25 @@
 		</div>
 		<div class="typeList marginTop10">
 			<van-badge content="85例" color="#2C9A35">
-				<div class="type-block" @click="$router.push('/monitor/search')">
+				<div class="type-block" @click="$router.push({path: '/alerts' , query: {tableIndex: 1}})">
 					<img class="type-icon" src="/images/icon010.png">
 					<div class="type-name weight700 textAlignCenter">宗教场所</div>
 				</div>
 			</van-badge>
 			<van-badge content="584例" color="#9A7A19">
-				<div class="type-block">
+				<div class="type-block" @click="$router.push({path: '/alerts' , query: {tableIndex: 2}})">
 					<img class="type-icon" src="/images/icon011.png">
 					<div class="type-name weight700 textAlignCenter">监控设备</div>
 				</div>
 			</van-badge>
 			<van-badge content="565例" color="#1052A1">
-				<div class="type-block">
+				<div class="type-block" @click="$router.push('/monitor/search')">
 					<img class="type-icon" src="/images/icon012.png">
 					<div class="type-name weight700 textAlignCenter">在线设备</div>
 				</div>
 			</van-badge>
 			<van-badge content="19例" color="#3D1C9A">
-				<div class="type-block" @click="$router.push('/alerts')">
+				<div class="type-block" @click="$router.push({path: '/alerts' , query: {tableIndex: 3}})">
 					<img class="type-icon" src="/images/icon013.png">
 					<div class="type-name weight700 textAlignCenter">报修设备</div>
 				</div>

@@ -36,12 +36,6 @@ const routes = [
     name: 'Themap',
     component: () => import('@/views/Themap/Themap.vue')
   },
-  // 监控-列表
-  {
-    path: "/monitor/list",
-    name: 'MonitorList',
-    component: () => import('@/views/Monitor/List')
-  },
   // 监控-截图
   {
     path: "/monitor/screenshot",
