@@ -60,13 +60,13 @@
 					<van-uploader v-model="fileList" :after-read="afterRead" />
 				</div>
 			</div>
-			<div class="block block-line">
+			<!-- <div class="block block-line">
 				<div class="left fontSize14 weight700">
 					谁来执行
 				</div>
 				<van-icon class="blueColor1" name="add-o" size="18" />
-			</div>
-			<div class="block block-line">
+			</div> -->
+			<div class="block block-line" @click="peopleOpen()">
 				<div class="left fontSize14 weight700">
 					抄送给
 				</div>
@@ -79,12 +79,17 @@
 				提交
 			</div>
 		</div>
+		<PopupPeople ref="people" :show="show" @confirm="peopleConfirm"></PopupPeople>
 	</div>
 </template>
 
 <script>
+	import PopupPeople from '@/components/Popup/PopupPeople.vue';
 	import { parseTime } from '@/utils/util'
 	export default{
+		components: {
+			PopupPeople
+		},
 		data() {
 			return {
 				type: {id: 0,name: ''},
@@ -97,9 +102,13 @@
 					{id: 2, name: '宁波'},
 					{id: 3, name: '温州'},
 				],
+				show: false,
 			}
 		},
 		methods: {
+			peopleConfirm(e){
+				console.log('peopleConfirm' , e);
+			},
 			/**
 			 * 选择任务类型
 			 * @param {Object} e
@@ -133,6 +142,9 @@
 					console.log('图片上传1', file);
 				}, 1000);
 			},
+			peopleOpen(){
+				this.$refs.people.open();
+			}
 		}
 	}
 </script>

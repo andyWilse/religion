@@ -119,8 +119,8 @@
 				dp: {}, // 视频对象
 				duration: 0, // 视频总时长
 				live: false, // 是否直播
-				// videoUrl: '/11.flv',
-				videoUrl: 'http://wz10.qqy189.com:12321/live/12209800010000758301.flv',
+				videoUrl: '/11.flv',
+				// videoUrl: 'http://wz10.qqy189.com:12321/live/12209800010000758301.flv',
 			}
 		},
 		watch: {
@@ -280,10 +280,9 @@
 				background-color: #E9F2F8;
 				border: 1px solid #1A559A;
 				border-radius: 22px;
-				display: flex;
+				display: inline-flex;
 				align-items: center;
 				padding: 2px 5px;
-				width: 175px;
 				margin-bottom: 10px;
 				
 				.camera-icon{

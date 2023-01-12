@@ -126,10 +126,9 @@
 					background-color: #E9F2F8;
 					border: 1px solid #1A559A;
 					border-radius: 22px;
-					display: flex;
+					display: inline-flex;
 					align-items: center;
 					padding: 2px 5px;
-					width: 175px;
 					margin-bottom: 10px;
 					
 					.camera-icon{

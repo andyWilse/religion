@@ -69,7 +69,6 @@
 			</div>
 			<div id="trend" class="con"></div>
 		</div>
-		<div class="empty"></div>
 	</div>
 </template>
 
@@ -233,6 +232,10 @@
 </script>
 
 <style scoped lang="less">
+	.empty{
+		background-color: #F6F6F6 !important;
+	}
+	
 	.page {
 		width: 100vw;
 		min-height: 100vh;

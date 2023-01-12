@@ -36,11 +36,11 @@
 			<!--6个按钮  -->
 			<div class="userhome_btn">
 				<div class="user_home_btn">
-					<div class="userhome_btn1">
+					<div class="userhome_btn1" @click="$router.push('/monitor/screenshot')">
 						<span class="userhome_btn1_span redColor1">教派统计</span>
 						<span class="userhome_btn1_spn redColor1">659座</span>
 					</div>
-					<div class="userhome_btn2">
+					<div class="userhome_btn2" @click="$router.push('/monitor/recordrtc')">
 						<span class="userhome_btn2_span yellowColor1">佛教</span>
 						<span class="userhome_btn2_spn yellowColor1">159座</span>
 					</div>
