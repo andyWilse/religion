@@ -30,6 +30,11 @@ const routes = [
     name: 'Reporting',
     component: () => import('@/views/Reporting/Reporting')
   },
+  {
+    path: '/urgenpepor',
+    name: 'urgenPepor',
+    component: () => import('@/views/Reporting/urgenPepor')
+  },
   // 场所地图 Venue
   {
     path: '/themap',

@@ -1,12 +1,11 @@
 import request from '@/service/api/index'
-// 获取高德搜索api
-// export function Paranme(key) {
-//   return request({
-//     url: '/place/text?parameters',
-//     method: 'get',
-//     data: key
-//   })
-// }
+// 获取
+export function Paranme() {
+  return request({
+    url: '/event/allEvent',
+    method: 'post',
+  })
+}
 
 // 高德地图search
 // export function Search() {
@@ -14,3 +13,9 @@ import request from '@/service/api/index'
 //     url: '/search',
 //   })
 // }
+
+/***
+ * 
+ * 
+ * 
+ */
