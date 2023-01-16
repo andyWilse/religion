@@ -81,7 +81,8 @@
 </template>
 
 <script>
-	import flvjs from 'flv.js';
+	// import flvjs from 'flv.js';
+	import Hls from 'hls.js';
 	import DPlayer from 'dplayer';	
 	import DialTel from "@/components/DialTel/DialTel.vue";
 	export default {
@@ -119,12 +120,15 @@
 				dp: {}, // 视频对象
 				duration: 0, // 视频总时长
 				live: false, // 是否直播
-				videoUrl: '/11.flv',
+				// videoUrl: '/11.flv',
 				// videoUrl: 'http://wz10.qqy189.com:12321/live/12209800010000758301.flv',
+				// videoUrl: 'http://wz10.qqy189.com:12321/live/12209800010000758301/hls.m3u8'
+				videoUrl: 'https://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8'
 			}
 		},
 		watch: {
 			live(n , o){
+				console.log('n' , n);
 				if(n) this.loadVideo();
 			}
 		},
@@ -144,26 +148,43 @@
 				that.dp = new DPlayer({
 				    container: document.getElementById('dplayer'),
 					live: that.live,
+					autoplay: true,
+					airplay: true,
 				    video: {
 				        url: that.videoUrl,
-				        type: 'customFlv',
+				        type: 'customHls',
 				        customType: {
-				            customFlv: function (video, player) {
-								console.log('customFlv' , video);
-				                const flvPlayer = flvjs.createPlayer({
-				                    type: 'flv',
-				                    url: that.videoUrl,
-				                });
-				                flvPlayer.attachMediaElement(video);
-				                flvPlayer.load();
-				            },
+							customHls: function (video, player) {
+								// console.log('customHls' , video);
+								const hls = new Hls();
+								hls.loadSource(that.videoUrl);
+								hls.attachMedia(video);
+							},
+				    //         customFlv: function (video, player) {
+								// console.log('customFlv' , video);
+				    //             const flvPlayer = flvjs.createPlayer({
+				    //                 type: 'flv',
+				    //                 url: that.videoUrl,
+				    //             });
+				    //             flvPlayer.attachMediaElement(video);
+				    //             flvPlayer.load();
+				    //         },
 				        },
 				    },
 				});
 				
 				that.dp.on('canplay' , function(){
-					that.duration = that.dp.video.duration;
-					that.live = that.duration == 'Infinity' ? true : false;
+					that.duration = parseFloat(that.dp.video.duration);
+					console.log('canplay' , that.duration);
+					that.live = that.duration <= 0 ? true : false;
+					if(!that.live){
+						// that.dp.seek(100);
+					}
+				});
+				
+				that.dp.on('timeupdate' , function(){
+					that.duration = parseFloat(that.dp.video.duration);
+					that.live = that.duration <= 0 ? true : false;
 				});
 			},
 			/**
