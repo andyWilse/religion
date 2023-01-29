@@ -8,6 +8,14 @@
       line-width="80px"
     >
       <van-tab title="数据汇总 ">
+        <template #title>
+          <img
+            src="@/assets/icon_image/images/icon001.png"
+            alt=""
+            class="img"
+          />
+          数据汇总
+        </template>
         <!-- 标题 -->
         <div class="home_fire">
           <span class="spn_fire"> </span>
@@ -158,6 +166,14 @@
         </div>
       </van-tab>
       <van-tab title="紧急事件">
+        <template #title>
+          <img
+            src="@/assets/icon_image/images/icon002.png"
+            alt=""
+            class="img"
+          />
+          紧急事件
+        </template>
         <urgen-pepor></urgen-pepor>
       </van-tab>
     </van-tabs>
@@ -166,7 +182,7 @@
 
 <script>
 import urgenPepor from "@/views/Reporting/urgenPepor.vue";
-import { Paranme } from "@/service/api/home";
+// import { Paranme } from "@/service/api/home";
 export default {
   name: "Reporting",
   data() {
@@ -190,16 +206,16 @@ export default {
     this.tableIndex = this.$route.query.tableIndex;
   },
   mounted() {
-    this.userHome();
+    // this.userHome();
   },
   methods: {
     selectTable(index) {
       this.tableIndex = index;
     },
-    async userHome() {
-      const res = await Paranme();
-      console.log(res);
-    },
+    // async userHome() {
+    //   const res = await Paranme();
+    //   console.log(res);
+    // },
   },
   components: {
     urgenPepor,
@@ -299,6 +315,11 @@ export default {
 }
 
 // tab 栏切换
+.img {
+  width: 19px;
+  height: 18px;
+  margin-right: 5px;
+}
 .ledger {
   border-top: 10px solid #f6f6f6;
 }
