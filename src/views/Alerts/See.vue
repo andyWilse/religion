@@ -44,6 +44,25 @@
         </van-collapse-item>
         <van-collapse-item title="历史回看" name="2">
           <div class="item_progress">
+            <!-- 时间条 -->
+            <div class="progressBar_time">
+              <span class="time">
+                <span class="time_time">13:40</span>
+              </span>
+              <span class="time">
+                <span class="time_time"> 14:00</span>
+              </span>
+              <span class="time">
+                <span class="time_time">14:20</span>
+              </span>
+              <span class="time">
+                <span class="time_time">14:40</span>
+              </span>
+              <span class="time">
+                <span class="time_time">15:00</span>
+              </span>
+            </div>
+
             <!-- 进度条 -->
             <div class="progressBar">
               <!-- 三个红色进度条 -->
@@ -108,6 +127,7 @@
 
 <script>
 // import flvjs from 'flv.js';
+import BScroll from "@better-scroll/core";
 import Hls from "hls.js";
 import DPlayer from "dplayer";
 import DialTel from "@/components/DialTel/DialTel.vue";
@@ -121,7 +141,8 @@ export default {
       searchName: "",
       telShow: false,
       phone: "",
-
+      //滚动
+      scroll: null,
       // 教派
       showChurch: false,
       church: { id: 0, name: "" },
@@ -161,11 +182,16 @@ export default {
   },
   mounted() {
     this.loadVideo();
+    this.itemBar();
   },
   created() {
     this.source = this.$route.query.source || "";
   },
   methods: {
+    /**
+     * 滑动
+     */
+    itemBar() {},
     /**
      * 播放视频
      */
@@ -347,15 +373,14 @@ export default {
 }
 // 进度条
 .item_progress {
-  width: 320px;
-  height: 101px;
+  height: 135px;
   background-color: #f0f0f0;
 }
 .progressBar {
   position: relative;
   width: 200px;
   height: 14px;
-  top: 45px;
+  top: 75px;
   background-color: #d2d2d2;
   border-radius: 5px;
   .progress {
@@ -392,12 +417,40 @@ export default {
 // 时间条
 .timeBar {
   position: absolute;
+
   left: 162px;
-  top: 50px;
+  top: 90px;
   right: 0;
   bottom: 0;
   width: 3px;
   height: 80px;
-  border: solid 1px #000000;
+  background-color: #000000;
+}
+//时间
+.progressBar_time {
+  position: absolute;
+  height: 30px;
+  top: 45px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  .time {
+    width: 1px;
+    height: 7px;
+    margin-left: 19px;
+    margin-right: 19px;
+    background-color: #000000;
+  }
+  .time_time {
+    display: inline-block;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #000000;
+    margin-left: -15px;
+    margin-top: 15px;
+  }
 }
 </style>

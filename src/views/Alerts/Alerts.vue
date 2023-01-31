@@ -1,13 +1,13 @@
 <template>
   <div class="page">
     <!-- <van-sticky> -->
-    <van-search
+    <!-- <van-search
       v-model="searchName"
       background="#F6F6F6"
       placeholder="输入场所名称、设备编号查询"
-    />
+    /> -->
     <!-- </van-sticky> -->
-    <div class="title fontSize12 weight700">茶山街道 - 王某某</div>
+    <!-- <div class="title fontSize12 weight700">茶山街道 - 王某某</div>
     <div class="typeList">
       <van-badge content="85例" color="#2C9A35">
         <div class="type-block" @click="selectTable(1)">
@@ -33,46 +33,7 @@
           <div class="type-name weight700 textAlignCenter">报修设备</div>
         </div>
       </van-badge>
-    </div>
-    <div
-      class="list padding15"
-      :class="[tableIndex != 3 ? 'list-border-bottom' : '']"
-    >
-      <div class="list-title fontSize14 weight700 blackColor">设备情况</div>
-
-      <div class="tables">
-        <div
-          class="table"
-          :class="[tableIndex == 1 ? 'check1' : '']"
-          @click="selectTable(1)"
-        >
-          <div class="left">
-            <img class="table-icon" src="/images/icon018.png" alt="" />
-          </div>
-          <div class="right fontSize12 weight700">宗教场所</div>
-        </div>
-        <div
-          class="table"
-          :class="[tableIndex == 2 ? 'check2' : '']"
-          @click="selectTable(2)"
-        >
-          <div class="left left2">
-            <img class="table-icon" src="/images/icon019.png" alt="" />
-          </div>
-          <div class="right fontSize12 weight700">监控设备</div>
-        </div>
-        <div
-          class="table"
-          :class="[tableIndex == 3 ? 'check3' : '']"
-          @click="selectTable(3)"
-        >
-          <div class="left left3">
-            <img class="table-icon" src="/images/icon021.png" alt="" />
-          </div>
-          <div class="right fontSize12 weight700">报修设备</div>
-        </div>
-      </div>
-    </div>
+    </div> -->
     <div class="deviceList">
       <!-- 报修设备 -->
       <div class="camera" v-if="tableIndex == 3">
@@ -80,7 +41,7 @@
           class="li"
           v-for="(item, index) in list"
           :key="index"
-          @click="$router.push('/alerts/See')"
+          @click="$router.push('/ltsmine/handle')"
         >
           <div class="top fontSize14 blackColor weight700">
             摄像头FJa00215401检查
@@ -105,7 +66,12 @@
         :key="index"
         v-else
       >
-        <div class="device-name fontSize14 blackColor weight700">卧云禅寺</div>
+        <div
+          class="device-name fontSize14 blackColor weight700"
+          @click="$router.push('/Monitor/Search')"
+        >
+          卧云禅寺
+        </div>
         <div class="device-msg hasColor1">
           温州市瓯海区雪山路367号景山公园内
         </div>
@@ -116,6 +82,12 @@
 
 <script>
 export default {
+  props: {
+    tableIndex: {
+      type: Number,
+      default: 1,
+    },
+  },
   data() {
     return {
       searchName: "",
@@ -132,7 +104,7 @@ export default {
   },
   mounted() {},
   created() {
-    this.tableIndex = this.$route.query.tableIndex;
+    // this.tableIndex = this.$route.query.tableIndex;
   },
   methods: {
     selectTable(index) {
