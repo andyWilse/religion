@@ -14,7 +14,7 @@
             alt=""
             class="img"
           />
-          数据汇总
+          AI预警
         </template>
         <!-- 标题 -->
         <div class="home_fire">
@@ -161,7 +161,6 @@
             </van-tab>
             <van-tab title="人流聚集"> </van-tab>
             <van-tab title="火灾预警"> </van-tab>
-            <van-tab title="任务预警"> </van-tab>
           </van-tabs>
         </div>
       </van-tab>
@@ -172,7 +171,7 @@
             alt=""
             class="img"
           />
-          紧急事件
+          数据汇总
         </template>
         <urgen-pepor></urgen-pepor>
       </van-tab>

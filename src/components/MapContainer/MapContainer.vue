@@ -325,7 +325,7 @@ export default {
 <style scoped lang="less">
 #container {
   height: 44vh;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 80px);
   width: 100% !important;
 }
 </style>

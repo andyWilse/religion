@@ -1,8 +1,8 @@
 import request from '@/service/api/index'
 // 获取
-export function Paranme() {
+export function ParanmHome() {
   return request({
-    url: '/event/allEvent',
+    url: '/event/undoEvents',
     method: 'post',
   })
 }
