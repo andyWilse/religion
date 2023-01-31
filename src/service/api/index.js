@@ -1,6 +1,6 @@
 import axios from "axios";
 const service = axios.create({
-  baseURL: "http://192.168.110.179:8092/religion/zhiyun",
+  baseURL: "http://zszjadmin.860577.net:8808/api/",
   timeout: 3000,
 
 })

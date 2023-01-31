@@ -15,22 +15,20 @@
 				<!-- 文字 -->
 				<div class="home_conter">
 					<div class="home_conter_left">
-						<span class="conter_span fontSize14 weight700">垟坑基督教堂</span>
+						<span class="conter_span fontSize14 weight700">{{ item.venuesName }}</span>
 						<van-tag type="primary" plain round text-color="#9B2E25"
-							style="background-color: #FCEFEE;font-weight: bold;" v-if="item.type == 1">火灾预警</van-tag>
+							style="background-color: #FCEFEE;font-weight: bold;" v-if="item.eventType == '火灾预警'">火灾预警</van-tag>
 						<van-tag type="primary" plain round text-color="#1A559A"
-							style="background-color: #E9F2F8;font-weight: bold;" v-if="item.type == 2">人脸识别</van-tag>
+							style="background-color: #E9F2F8;font-weight: bold;" v-else>{{ item.eventType }}</van-tag>
 					</div>
 			
 					<div class="conter_span_s">
-						<span class="span_item">时间:2022-12-09 08:21:11 </span>
+						<span class="span_item">时间:{{ item.warnTime }}</span>
 					</div>
 				</div>
 				<div class="home_rigth">
-					<img class="home_rigth_span" src="/images/icon005.png" v-if="item.type == 1"
-						@click="$router.push('/fire')">
-					<img class="home_rigth_span" src="/images/icon006.png" v-if="item.type == 2"
-						@click="$router.push('/fire')">
+					<img class="home_rigth_span" src="/images/icon005.png" v-if="item.eventType == '火灾预警'" @click="$router.push('/fire')">
+					<img class="home_rigth_span" src="/images/icon006.png" v-else @click="$router.push('/fire')">
 				</div>
 			</div>
 			<!--6个按钮  -->
@@ -38,29 +36,29 @@
 				<div class="user_home_btn">
 					<div class="userhome_btn1" @click="$router.push('/monitor/screenshot')">
 						<span class="userhome_btn1_span redColor1">教派统计</span>
-						<span class="userhome_btn1_spn redColor1">659座</span>
+						<span class="userhome_btn1_spn redColor1">{{ allNum.total }}座</span>
 					</div>
 					<div class="userhome_btn2" @click="$router.push('/monitor/recordrtc')">
 						<span class="userhome_btn2_span yellowColor1">佛教</span>
-						<span class="userhome_btn2_spn yellowColor1">159座</span>
+						<span class="userhome_btn2_spn yellowColor1">{{ allNum.Buddhism }}座</span>
 					</div>
 					<div class="userhome_btn3">
 						<span class="userhome_btn3_span redColor1">道教</span>
-						<span class="userhome_btn3_spn redColor1">109座</span>
+						<span class="userhome_btn3_spn redColor1">{{ allNum.Taoism }}座</span>
 					</div>
 				</div>
 				<div class="userhome_set">
 					<div class="userhome_btn4">
 						<span class="userhome_btn4_span blueColor">基督教</span>
-						<span class="userhome_btn4_spn blueColor">91座</span>
+						<span class="userhome_btn4_spn blueColor">{{ allNum.Christianity }}座</span>
 					</div>
 					<div class="userhome_btn5">
 						<span class="userhome_btn5_span greenColor">天主教</span>
-						<span class="userhome_btn5_spn greenColor">206座</span>
+						<span class="userhome_btn5_spn greenColor">{{ allNum.Catholicism }}座</span>
 					</div>
 					<div class="userhome_btn6">
 						<span class="userhome_btn6_span">伊斯兰教</span>
-						<span class="userhome_btn6_spn">40座</span>
+						<span class="userhome_btn6_spn">{{ allNum.Islamism }}座</span>
 					</div>
 				</div>
 			</div>
@@ -121,10 +119,10 @@
 					</div>
 					<div class="right">
 						<div class="name textHide1 fontSize14 blackColor weight700">
-							习近平:坚持我国宗教中国化方向
+							{{ item.newsTitle }}
 						</div>
 						<div class="msg fontSize12 textHide1 hasColor1">
-							部分详情内容显示...
+							{{ item.newsContent }}
 						</div>
 					</div>
 				</div>
@@ -134,6 +132,7 @@
 </template>
 
 <script>
+	import * as Api from "@/service/api/home";
 	export default {
 		name: "Reporting",
 		data() {
@@ -146,10 +145,43 @@
 						type: 2,
 					},
 				], // 紧急事件
-				list: [1, 2],
+				allNum: {},
+				page: 1,
+				list: [],
 			};
 		},
-		methods: {},
+		mounted() {
+		  this.undoEvents();
+		  this.getAllNum();
+		  this.newList();
+		},
+		methods: {
+			/**
+			 * 紧急事件
+			 */
+			undoEvents(){
+				Api.undoEvents().then(result => {
+					this.urgent = result.data.resultMap;
+				});
+			},
+			/**
+			 * 各类教堂数量
+			 */
+			getAllNum(){
+				Api.getAllNum().then(result => {
+					this.allNum = result.data;
+				});
+			},
+			newList(){
+				Api.newList({
+					page: this.page,
+					size: 10
+				}).then(result => {
+					this.list = this.list.concat(result.data.resultArr);
+					console.log('newList' , result);
+				});
+			}
+		},
 	};
 </script>
 

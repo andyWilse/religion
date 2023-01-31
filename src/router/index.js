@@ -49,6 +49,12 @@ const routes = [
   },
   // 监控-截图
   {
+    path: "/monitor/Calendar",
+    name: 'MonitorCalendar',
+    component: () => import('@/views/Monitor/Calendar')
+  },
+  // 监控-截图
+  {
     path: "/monitor/screenshot",
     name: 'MonitorScreenshot',
     component: () => import('@/views/Monitor/Screenshot')
