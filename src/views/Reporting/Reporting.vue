@@ -2,14 +2,14 @@
 	<div class="container">
 		<!--紧急事件-->
 		<van-tabs v-model="activeName" line-height="1px" color="#1a559a" line-width="80px">
-			<van-tab title="数据汇总 ">
+			<van-tab title="数据汇总">
 				<template #title>
 					<img src="@/assets/icon_image/images/icon001.png" alt="" class="img" />
-					数据汇总
+					AI预警
 				</template>
 				<!-- 标题 -->
 				<div class="home_fire">
-					<span class="spn_fire"> </span>
+					<span class="spn_fire"></span>
 					<span class="fire weight700">紧急事件</span>
 				</div>
 				<!-- 垟坑基督教堂 -->
@@ -109,7 +109,7 @@
 			<van-tab title="紧急事件">
 				<template #title>
 					<img src="@/assets/icon_image/images/icon002.png" alt="" class="img" />
-					紧急事件
+					数据汇总
 				</template>
 				<urgen-pepor></urgen-pepor>
 			</van-tab>

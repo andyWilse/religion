@@ -76,9 +76,9 @@
 					<div class="top fontSize14 blackColor weight700">
 						摄像头检查
 						<van-tag type="primary" plain round text-color="#9B2E25"
-							style="background-color: #FCEFEE;font-weight: bold;" v-if="item == 1">十万火急</van-tag>
+							style="background-color: #FCEFEE;font-weight: bold;" v-if="item == 1" @click="$router.push('/ltsmine/handle')">十万火急</van-tag>
 						<van-tag type="primary" plain round text-color="#AB903E"
-							style="background-color: #FAF1ED;font-weight: bold;" v-else>重要紧急</van-tag>
+							style="background-color: #FAF1ED;font-weight: bold;" v-else @click="$router.push('/ltsmine/handle')">重要紧急</van-tag>
 					</div>
 		
 					<div class="bottom">
