@@ -44,34 +44,36 @@
         </van-collapse-item>
         <van-collapse-item title="历史回看" name="2">
           <div class="item_progress">
+            <Calendarlist />
             <!-- 时间条 -->
-            <div class="progressBar_time">
-              <span class="time">
-                <span class="time_time">13:40</span>
-              </span>
-              <span class="time">
-                <span class="time_time"> 14:00</span>
-              </span>
-              <span class="time">
-                <span class="time_time">14:20</span>
-              </span>
-              <span class="time">
-                <span class="time_time">14:40</span>
-              </span>
-              <span class="time">
-                <span class="time_time">15:00</span>
-              </span>
+            <div class="item_proherss">
+              <div class="progressBar_time">
+                <span class="time">
+                  <span class="time_time">13:40</span>
+                </span>
+                <span class="time">
+                  <span class="time_time"> 14:00</span>
+                </span>
+                <span class="time">
+                  <span class="time_time">14:20</span>
+                </span>
+                <span class="time">
+                  <span class="time_time">14:40</span>
+                </span>
+                <span class="time">
+                  <span class="time_time">15:00</span>
+                </span>
+              </div>
+              <!-- 进度条 -->
+              <div class="progressBar">
+                <!-- 三个红色进度条 -->
+                <div class="progress_e"></div>
+                <div class="progress"></div>
+                <div class="progress_l"></div>
+              </div>
+              <!-- 时间条 -->
+              <div class="timeBar mouse-wheel-wrapper"></div>
             </div>
-
-            <!-- 进度条 -->
-            <div class="progressBar">
-              <!-- 三个红色进度条 -->
-              <div class="progress_e"></div>
-              <div class="progress"></div>
-              <div class="progress_l"></div>
-            </div>
-            <!-- 时间条 -->
-            <div class="timeBar"></div>
           </div>
         </van-collapse-item>
         <van-collapse-item title="场所概况" name="3">
@@ -127,13 +129,18 @@
 
 <script>
 // import flvjs from 'flv.js';
-import BScroll from "@better-scroll/core";
+// import BScroll from "@better-scroll/core";
+/**
+ * 时间 日历
+ */
+import Calendarlist from "@/views/Monitor/Calendar.vue";
 import Hls from "hls.js";
 import DPlayer from "dplayer";
 import DialTel from "@/components/DialTel/DialTel.vue";
 export default {
   components: {
     DialTel,
+    Calendarlist,
   },
   data() {
     return {
@@ -373,7 +380,12 @@ export default {
 }
 // 进度条
 .item_progress {
-  height: 135px;
+  height: 240px;
+  background-color: #fff;
+}
+.item_proherss {
+  height: 140px;
+  margin-top: 11px;
   background-color: #f0f0f0;
 }
 .progressBar {
@@ -417,9 +429,8 @@ export default {
 // 时间条
 .timeBar {
   position: absolute;
-
   left: 162px;
-  top: 90px;
+  top: 185px;
   right: 0;
   bottom: 0;
   width: 3px;
@@ -429,8 +440,9 @@ export default {
 //时间
 .progressBar_time {
   position: absolute;
+
   height: 30px;
-  top: 45px;
+  top: 140px;
   right: 0;
   bottom: 0;
   left: 0;
