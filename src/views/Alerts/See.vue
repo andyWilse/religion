@@ -46,34 +46,7 @@
           <div class="item_progress">
             <Calendarlist />
             <!-- 时间条 -->
-            <div class="item_proherss">
-              <div class="progressBar_time">
-                <span class="time">
-                  <span class="time_time">13:40</span>
-                </span>
-                <span class="time">
-                  <span class="time_time"> 14:00</span>
-                </span>
-                <span class="time">
-                  <span class="time_time">14:20</span>
-                </span>
-                <span class="time">
-                  <span class="time_time">14:40</span>
-                </span>
-                <span class="time">
-                  <span class="time_time">15:00</span>
-                </span>
-              </div>
-              <!-- 进度条 -->
-              <div class="progressBar">
-                <!-- 三个红色进度条 -->
-                <div class="progress_e"></div>
-                <div class="progress"></div>
-                <div class="progress_l"></div>
-              </div>
-              <!-- 时间条 -->
-              <div class="timeBar mouse-wheel-wrapper"></div>
-            </div>
+            <hori-zontal />
           </div>
         </van-collapse-item>
         <van-collapse-item title="场所概况" name="3">
@@ -129,10 +102,11 @@
 
 <script>
 // import flvjs from 'flv.js';
-// import BScroll from "@better-scroll/core";
+
 /**
  * 时间 日历
  */
+import HoriZontal from "@/views/Alerts/horizontal.vue";
 import Calendarlist from "@/views/Monitor/Calendar.vue";
 import Hls from "hls.js";
 import DPlayer from "dplayer";
@@ -141,6 +115,7 @@ export default {
   components: {
     DialTel,
     Calendarlist,
+    HoriZontal,
   },
   data() {
     return {
@@ -189,16 +164,11 @@ export default {
   },
   mounted() {
     this.loadVideo();
-    this.itemBar();
   },
   created() {
     this.source = this.$route.query.source || "";
   },
   methods: {
-    /**
-     * 滑动
-     */
-    itemBar() {},
     /**
      * 播放视频
      */

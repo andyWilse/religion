@@ -114,6 +114,12 @@ const routes = [
     name: "Fire",
     component: () => import('@/views/Fire/Fire')
   },
+  // 时间条   horizontal
+  {
+    path: "/horizontal",
+    name: 'horizontal',
+    component: () => import('@/views/Alerts/horizontal')
+  },
 
 ]
 
