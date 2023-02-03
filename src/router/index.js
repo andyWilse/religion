@@ -120,7 +120,13 @@ const routes = [
     name: 'horizontal',
     component: () => import('@/views/Alerts/horizontal')
   },
+  // 上报 
 
+  {
+    path: "/report",
+    name: 'report',
+    component: () => import('@/views/ItsMine/Report')
+  },
 ]
 
 const router = new VueRouter({

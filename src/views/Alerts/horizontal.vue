@@ -24,8 +24,8 @@
           <div class="progress_l"></div>
         </div>
       </div>
+      <div class="timeBar mouse-wheel-wrapper"></div>
     </div>
-    <div class="timeBar mouse-wheel-wrapper"></div>
   </div>
 </template>
 <script>
@@ -34,20 +34,7 @@ export default {
   name: "horizontal",
   data() {
     return {
-      emojis: [
-        "👉🏼 😁 😂 🤣 👈🏼",
-        "😄 😅 😆 😉 😊",
-        "😫 😴 😌 😛 😜",
-        "👆🏻 😒 😓 😔 👇🏻",
-        "😑 😶 🙄 😏 😣",
-        "😞 😟 😤 😢 😭",
-        "🤑 😲 ☹️ 🙁 😖",
-        "👍 👎 👊 ✊ 🤛",
-        "☝️ ✋ 🤚 🖐 🖖",
-        "👍🏼 👎🏼 👊🏼 ✊🏼 🤛🏼",
-        "☝🏽 ✋🏽 🤚🏽 🖐🏽 🖖🏽",
-        "🌖 🌗 🌘 🌑 🌒",
-      ],
+      bs: null,
     };
   },
   mounted() {
@@ -55,27 +42,27 @@ export default {
   },
   methods: {
     info() {
-      this.bs = new BScroll(this.$refs.scroll, {
-        scrollX: true,
-        scrollY: false,
-        probeType: 3, // listening scroll event
-      });
-      this.bs.on("scrollStart", () => {
-        console.log("scrollStart-");
-      });
-      this.bs.on("scroll", ({ y }) => {
-        console.log("scrolling-");
-      });
-      this.bs.on("scrollEnd", () => {
-        console.log("scrollingEnd");
-      });
+      if (!this.bs) {
+        this.bs = new BScroll(this.$refs.scroll, {
+          scrollX: true,
+          scrollY: false,
+          useTransition: false,
+          probeType: 3, // listening scroll event
+          eventPassthrough: "vertical",
+        });
+      } else {
+        console.log(this.bs.refresh());
+        //如果dom结构发生改变调用该方法重新计算来确保滚动效果的正常
+      }
     },
   },
 };
 </script>
 <style scoped lang="less">
-.horizontal-container .scroll-wrapper {
+.scroll-wrapper {
+  width: 90%;
   white-space: nowrap;
+  overflow: hidden;
 }
 
 .scroll-content {
@@ -147,6 +134,7 @@ export default {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+
   .time {
     width: 1px;
     height: 7px;
@@ -156,8 +144,6 @@ export default {
   }
   .time_time {
     display: inline-block;
-    font-weight: normal;
-    font-stretch: normal;
     letter-spacing: 0px;
     color: #000000;
     margin-left: -15px;

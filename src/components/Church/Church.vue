@@ -10,6 +10,7 @@
           </div>
         </div>
         <div class="title-bottom">所属机构：甄海区 泽雅镇</div>
+        <div class="title-bottom">场所地址： 泽雅镇</div>
       </div>
       <div class="title-right" @click="$router.push('/alerts/see')">
         <van-image width="50" height="50" src="/images/icon017.png" />
@@ -66,15 +67,15 @@
             <div class="block-line-right"></div>
           </div>
           <div class="block-line">
-            <div class="block-line-left">
+            <div class="block-line-left bock-line-sizi" @click="see">
               第一负责人：陈*旺 <span class="blueColor">138****744</span>
             </div>
-            <div class="block-line-right">
-              <div class="see redColor1" @click="see">查看</div>
+            <div class="block-line-left bock-line-sizi" @click="see">
+              第二负责人：陈*旺 <span class="blueColor">138****744</span>
             </div>
           </div>
           <div class="block-line">
-            <div class="block-line-left">
+            <div class="block-line-left bock-line-sizi">
               工作联络员：陈*旺 <span class="blueColor">138****744</span>
             </div>
             <div class="block-line-right"></div>
@@ -115,23 +116,8 @@
           </div>
         </div>
       </van-collapse-item>
-      <van-collapse-item title="监管干部" name="4">
-        <div class="block-con hasColor1 fontSize12">
-          <div class="block-line">
-            <div class="block-line-left">监管干部：甄海区 泽雅镇</div>
-            <div class="block-line-right"></div>
-          </div>
-          <div class="block-line">
-            <div class="block-line-left">监管干部：甄海区 泽雅镇</div>
-            <div class="block-line-right"></div>
-          </div>
-          <div class="block-line">
-            <div class="block-line-left">监管干部：甄海区 泽雅镇</div>
-            <div class="block-line-right"></div>
-          </div>
-        </div>
-      </van-collapse-item>
-      <van-collapse-item title="三人驻堂" name="5">
+
+      <van-collapse-item title="三人驻堂" name="4">
         <div class="block-con hasColor1 fontSize12">
           <div class="block-line">
             <div class="block-line-left">组长：甄海区 泽雅镇</div>
@@ -174,7 +160,7 @@ export default {
         "/images/img001.jpg",
       ],
       telShow: false,
-      activeNames: [],
+      activeNames: ["1"],
     };
   },
   methods: {
@@ -320,6 +306,7 @@ export default {
   .block-line {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: space-between;
 
     .see {
@@ -341,5 +328,9 @@ export default {
     border-bottom-color: #c8c8c8;
     padding: 10px 0px;
   }
+}
+.bock-line-sizi {
+  color: #a1392e;
+  font-size: 14px;
 }
 </style>

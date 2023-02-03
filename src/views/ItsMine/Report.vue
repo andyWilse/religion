@@ -91,15 +91,19 @@
       :show="show"
       @confirm="peopleConfirm"
     ></PopupPeople>
-    <!-- 上传 -->
   </div>
 </template>
 
 <script>
 import PopupPeople from "@/components/Popup/PopupPeople.vue";
 import { parseTime } from "@/utils/util";
-
 export default {
+  props: {
+    tableIndex: {
+      type: Number,
+      default: 1,
+    },
+  },
   components: {
     PopupPeople,
   },
@@ -116,7 +120,6 @@ export default {
         { id: 3, name: "温州" },
       ],
       show: false,
-      tableIndex: 1,
     };
   },
   methods: {
@@ -245,26 +248,12 @@ export default {
   }
 }
 // 下达
-
 .issued {
   display: inline-block;
-  border: 1px solid #9b2e25;
-  background-color: #fcefee;
-  padding: 2px 10px;
-  border-radius: 20px;
-  border-color: #9a7a19;
-  background-color: #faf1ed;
 }
 // 上报
 .report {
   display: inline-block;
-  border: 1px solid #9b2e25;
-  background-color: #fcefee;
-  padding: 2px 10px;
-  border-radius: 20px;
-  margin-left: 18px;
-  border-color: #135097;
-  background-color: #e9f2f8;
 }
 .uploader {
   margin-left: 105px;
